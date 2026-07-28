@@ -1,0 +1,31 @@
+<section class="profile-section">
+	<h2>Student Profile</h2>
+
+	<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+		<label>
+			Name
+			<input type="text" formControlName="name" placeholder="Your name" />
+			<span class="field-error" *ngIf="name?.touched && name?.invalid">
+				Name is required
+			</span>
+		</label>
+
+		<label>
+			Email
+			<input type="email" formControlName="email" placeholder="you@example.com" />
+			<span class="field-error" *ngIf="email?.touched && email?.invalid">
+				Enter a valid email
+			</span>
+		</label>
+
+		<label>
+			Semester
+			<input type="number" formControlName="semester" placeholder="e.g. 6" />
+			<span class="field-error" *ngIf="semester?.touched && semester?.invalid">
+				Semester must be between 1 and 8
+			</span>
+		</label>
+
+		<button type="submit" [disabled]="profileForm.invalid">Submit</button>
+	</form>
+</section>

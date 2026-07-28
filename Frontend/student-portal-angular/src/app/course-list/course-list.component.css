@@ -1,0 +1,47 @@
+#courses {
+  padding: 2rem 1.5rem;
+}
+
+.search-input {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #c5cdd9;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.status-msg {
+  padding: 1rem 0;
+  color: #555;
+  font-style: italic;
+}
+
+.status-msg.error-msg {
+  color: #b3261e;
+  font-style: normal;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid #d8dce2;
+  border-top-color: #1f2a44;
+  border-radius: 50%;
+  margin: 1.5rem auto;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}

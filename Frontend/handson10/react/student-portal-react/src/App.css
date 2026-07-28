@@ -1,0 +1,29 @@
+.error-boundary {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.error-boundary h2 {
+  margin-bottom: 1rem;
+  color: #b3261e;
+}
+
+.error-boundary p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.error-boundary button {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #1f2a44;
+  border-radius: 6px;
+  background-color: #1f2a44;
+  color: #fff;
+  cursor: pointer;
+}
+
+.total-credits {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #1f2a44;
+}

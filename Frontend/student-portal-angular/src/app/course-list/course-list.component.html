@@ -1,0 +1,28 @@
+<section id="courses">
+  <h2>Enrolled Courses</h2>
+
+  <input
+    type="text"
+    placeholder="Search courses..."
+    [(ngModel)]="searchTerm"
+    class="search-input"
+  />
+
+  <div *ngIf="loading" class="spinner"></div>
+
+  <p *ngIf="error" class="status-msg error-msg">{{ error }}</p>
+
+  <p *ngIf="!loading && !error && filteredCourses.length === 0" class="status-msg">
+    No courses found
+  </p>
+
+  <div *ngIf="!loading && !error" class="course-grid">
+    <app-course-card
+      *ngFor="let course of filteredCourses"
+      [name]="course.name"
+      [code]="course.code"
+      [credits]="course.credits"
+      [grade]="course.grade"
+    ></app-course-card>
+  </div>
+</section>

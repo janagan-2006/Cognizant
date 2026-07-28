@@ -1,0 +1,49 @@
+.profile-section {
+	padding: 2rem 1.5rem;
+	background-color: #eef1f6;
+}
+
+.profile-section form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	max-width: 400px;
+}
+
+.profile-section label {
+	display: flex;
+	flex-direction: column;
+	font-size: 0.9rem;
+	font-weight: bold;
+	gap: 0.35rem;
+}
+
+.profile-section input {
+	padding: 0.6rem 0.8rem;
+	border: 1px solid #c5cdd9;
+	border-radius: 6px;
+	font-size: 0.95rem;
+	font-weight: normal;
+}
+
+.field-error {
+	color: #b3261e;
+	font-size: 0.8rem;
+	font-weight: normal;
+}
+
+.profile-section button {
+	padding: 0.6rem 1.2rem;
+	border: 2px solid #1f2a44;
+	border-radius: 6px;
+	background-color: #1f2a44;
+	color: #fff;
+	cursor: pointer;
+	align-self: flex-start;
+}
+
+.profile-section button:disabled {
+	background-color: #aab0bc;
+	border-color: #aab0bc;
+	cursor: not-allowed;
+}
