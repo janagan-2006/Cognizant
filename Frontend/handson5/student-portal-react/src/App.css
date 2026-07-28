@@ -1,0 +1,243 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1f2a44;
+  color: #fff;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.site-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.enrolled-count {
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+}
+
+#courses {
+  padding: 2rem 1.5rem;
+}
+
+.search-input {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #c5cdd9;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.status-msg {
+  padding: 1rem 0;
+  color: #555;
+  font-style: italic;
+}
+
+.status-msg.error-msg {
+  color: #b3261e;
+  font-style: normal;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.course-card {
+  background-color: #fff;
+  border: 1px solid #d8dce2;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.course-card .credits,
+.course-card .grade {
+  display: block;
+  font-size: 0.85rem;
+  color: #1f2a44;
+  margin-top: 0.25rem;
+}
+
+.course-card button {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  border: 2px solid #1f2a44;
+  border-radius: 6px;
+  background-color: #1f2a44;
+  color: #fff;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.course-card button:hover {
+  background-color: #14213a;
+}
+
+.profile-section {
+  padding: 2rem 1.5rem;
+  background-color: #eef1f6;
+}
+
+.profile-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin-bottom: 1.5rem;
+}
+
+.profile-section label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  font-weight: bold;
+  gap: 0.35rem;
+}
+
+.profile-section input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #c5cdd9;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: normal;
+}
+
+.profile-preview {
+  background-color: #fff;
+  border: 1px solid #d8dce2;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  max-width: 400px;
+}
+
+.profile-preview p {
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1f2a44;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.enroll-btn-standalone {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid #1f2a44;
+  border-radius: 6px;
+  background-color: #1f2a44;
+  color: #fff;
+  cursor: pointer;
+}
+
+.enroll-btn-standalone:hover {
+  background-color: #14213a;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background-color: #e8edf5;
+}
+
+.course-detail {
+  padding: 2rem 1.5rem;
+  max-width: 600px;
+}
+
+.course-detail h2 {
+  margin-bottom: 0.5rem;
+}
+
+.course-detail .code {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.course-detail button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #1f2a44;
+  border-radius: 6px;
+  background-color: #1f2a44;
+  color: #fff;
+  cursor: pointer;
+}
+
+.enrolled-list {
+  padding: 0 1.5rem 2rem;
+}
+
+.enrolled-list ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.enrolled-list li {
+  background-color: #fff;
+  border: 1px solid #d8dce2;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.enrolled-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-btn {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid #b3261e;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #b3261e;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.remove-btn:hover {
+  background-color: #b3261e;
+  color: #fff;
+}

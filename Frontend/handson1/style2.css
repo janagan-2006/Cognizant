@@ -1,0 +1,62 @@
+/* ---- MOBILE-FIRST BASE STYLES (default = smallest screens) ---- */
+
+.site-name {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: bold;
+}
+
+.hamburger {
+  display: block;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav {
+  display: none; /* hidden on mobile, hamburger placeholder shown instead */
+}
+
+#hero {
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #e8edf5;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* single column by default */
+  gap: 1.25rem;
+}
+
+/* ---- TABLET ENHANCEMENT: 768px and up ---- */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  nav {
+    display: flex; /* show full nav bar, replace hamburger */
+  }
+
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- DESKTOP ENHANCEMENT: 1024px and up ---- */
+@media (min-width: 1024px) {
+  .course-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #hero {
+    padding: 4rem 1.5rem;
+  }
+}

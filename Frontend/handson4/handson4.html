@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal - Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="site-name">Student Portal</div>
+    <button class="hamburger" aria-label="Menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#grades">Grades</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="hero-content">
+        <h1>Welcome to the Student Portal</h1>
+        <p>Track your courses, grades, and notifications all in one place.</p>
+        <button type="button">Explore Courses</button>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Courses Enrolled</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">3.8</span>
+          <span class="stat-label">GPA</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">6</span>
+          <span class="stat-label">Semester</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <h2>Enrolled Courses</h2>
+
+      <div class="course-controls">
+        <input type="text" id="search-courses" placeholder="Search courses...">
+        <button type="button" id="sort-credits">Sort by Credits</button>
+      </div>
+
+      <div class="course-grid">
+        <!-- Cards rendered dynamically by app.js -->
+      </div>
+
+      <p id="total-credits"></p>
+      <div id="selected-course"></div>
+    </section>
+
+    <section id="notifications">
+      <h2>Notifications</h2>
+      <div id="notifications-list"></div>
+    </section>
+
+    <section id="error-demo">
+      <h2>Error Handling Demo</h2>
+      <button type="button" id="trigger-error">Load Broken Endpoint</button>
+      <div id="error-demo-result"></div>
+    </section>
+
+    <section id="axios-demo">
+      <h2>Axios Demo — User 1's Posts</h2>
+      <button type="button" id="load-axios-posts">Load User 1 Posts (Axios)</button>
+      <div id="axios-posts-result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Student Portal. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
