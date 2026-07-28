@@ -1,0 +1,114 @@
+
+# 1. REQUEST-RESPONSE CYCLE: GET /api/courses/
+
+#
+# Browser/Client
+#     |
+#     |  HTTP GET /api/courses/
+#     v
+# WSGI/ASGI Server (e.g., Gunicorn/Daphne) or Django dev server
+#     |
+#     v
+# Django Middleware Stack (request phase, top to bottom)
+#     |
+#     v
+# URL Router (urls.py) -> matches /api/courses/ pattern
+#     |
+#     v
+# View (views.py / ViewSet) -> contains business logic
+#     |
+#     v
+# Model (models.py) -> ORM translates Python calls to SQL
+#     |
+#     v
+# Database (e.g., SQLite/PostgreSQL) -> executes query, returns rows
+#     |
+#     v
+# Model -> converts DB rows back into Python objects (QuerySet)
+#     |
+#     v
+# View -> serializes objects (e.g., via DRF Serializer) into JSON
+#     |
+#     v
+# Django Middleware Stack (response phase, bottom to top - reverse order)
+#     |
+#     v
+# HttpResponse / Response object returned to client
+#     |
+#     v
+# Browser/Client receives JSON response
+
+
+
+# 2. MIDDLEWARE
+
+#
+# Middleware sits BETWEEN the web server and the View. Every request
+# passes through the middleware stack (top-down) BEFORE reaching the
+# URL router/view, and every response passes back through the same
+# stack (bottom-up) before being sent to the client.
+#
+# Two built-in Django middleware classes:
+#
+# 1. django.middleware.security.SecurityMiddleware
+#    - Adds security-related HTTP headers to every response
+#      (e.g., X-Content-Type-Options, Strict-Transport-Security).
+#    - Helps protect against clickjacking, MIME-sniffing attacks, etc.
+#
+# 2. django.contrib.sessions.middleware.SessionMiddleware
+#    - Enables session support by attaching a `request.session` object
+#      to every incoming request, backed by a session store (DB/cache).
+#    - Used for things like keeping a user logged in across requests.
+#
+# (Other common ones: AuthenticationMiddleware - attaches request.user,
+#  CsrfViewMiddleware - protects against Cross-Site Request Forgery.)
+
+
+# 3. WSGI vs ASGI
+
+#
+# WSGI (Web Server Gateway Interface):
+#   - A SYNCHRONOUS interface between Python web apps and web servers.
+#   - Handles one request at a time per worker process/thread.
+#   - Cannot natively handle WebSockets, long-polling, or async views.
+#
+# ASGI (Asynchronous Server Gateway Interface):
+#   - The ASYNC successor to WSGI.
+#   - Supports async/await, WebSockets, HTTP/2, and long-lived connections.
+#   - Can handle many concurrent connections without blocking on I/O.
+#
+# Django uses WSGI by default (wsgi.py is generated automatically).
+#
+# Switch to ASGI when you need:
+#   - WebSocket support (e.g., real-time chat, live notifications)
+#   - Async views/middleware for high-concurrency I/O-bound workloads
+#   - Long-polling or Server-Sent Events
+#
+# For a simple CRUD REST API like the Course Management API, WSGI is
+# sufficient. ASGI (asgi.py) would matter if we later added real-time
+# features (e.g., live enrollment notifications via WebSockets).
+
+
+# 4. MVC -> MVT MAPPING
+
+#
+# MVC (Model-View-Controller) - traditional pattern:
+#   - Model:      Manages data and business logic
+#   - View:       Presents data to the user (the UI/template)
+#   - Controller: Handles input, talks to Model, picks a View to render
+#
+# Django's MVT (Model-View-Template):
+#   - Model:    SAME as MVC's Model - defines data structure & DB logic
+#               (e.g., Course, Department, Student, Enrollment classes)
+#   - View:     Equivalent to MVC's CONTROLLER - contains the logic that
+#               receives the request, queries the Model, and decides
+#               what data to send back (e.g., hello_view, CourseViewSet)
+#   - Template: Equivalent to MVC's VIEW - the presentation layer
+#               (HTML/Jinja-like templates). In a pure REST API like
+#               ours, this role is effectively replaced by the
+#               Serializer producing JSON instead of HTML.
+#
+# Summary mapping:
+#   MVC Controller  -->  Django View
+#   MVC View        -->  Django Template (or Serializer output, for APIs)
+#   MVC Model       -->  Django Model
